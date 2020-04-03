@@ -11,7 +11,7 @@ import Article from './Article.js'
 
 import '../App.css';
 
-const baseUrl = 'http://newsapi.org/v2/'
+const baseUrl = 'https://newsapi.org/v2/'
 const topHeadlinesEndpoint = 'top-headlines?'
 const langCountry = 'language=en&country=us&'
 const apiKey = 'apiKey=' + process.env.REACT_APP_NEWS_API_KEY
@@ -51,7 +51,7 @@ class App extends React.Component {
           <div className="content">
             <Route exact path='/' render={props => <ArticleList {...props} headlines={this.state.headlines} />} />
             <Route exact path='/covid-19/' render={props => <SubjectFilter {...props} headlines={this.state.headlines} />} />
-            <Route exact path='/source/' render={props => <SourceFilter {...props} headlines={this.state.headlines} source={this.state.source}/>} />
+            <Route exact path='/source/' render={props => <SourceFilter {...props} headlines={this.state.headlines} source={this.state.source} />} />
             <Route path='/covid-19/:publishedAt' render={props => <Article {...props} headlines={this.state.headlines} />} />
             <Route path='/article/:publishedAt' render={props => <Article {...props} headlines={this.state.headlines} />} />
             <Route path='/source/:publishedAt' render={props => <Article {...props} headlines={this.state.headlines} />} />
