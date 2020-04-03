@@ -15,7 +15,7 @@
 }
 .header {
   grid-area: header;
-
+  justify-items: center;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,7 +23,8 @@
   text-align: center;
   background-color: #444444;
   color: #FFFFFF;
-  margin-top: 0;
+  padding-left: auto;
+  padding-right: auto;
   padding-bottom: 25px;
 }
 .nav {
@@ -32,12 +33,9 @@
   background-color: orange;
   padding: 10px;
   text-align: center;
-  border: 5px solid greenyellow;
 }
 .content {
   grid-area: content;
-  
-  border: 2px solid black;
 }
 .footer {
   grid-area: footer;
@@ -64,3 +62,15 @@ a {
   text-decoration: none;
 }
 
+button {
+  width: 150px;
+  height: auto;
+
+}
+
+.article-image {
+  text-align: center;
+  margin: 0 auto;
+  justify-items: center;
+  justify-content: center;
+}

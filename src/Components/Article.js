@@ -7,7 +7,7 @@ function Article(props) {
   console.log(headline)
   return (
     <div>
-      <img src={headline && headline.urlToImage} alt='' width='300px'></img>
+      <img className='article-image' src={headline && headline.urlToImage} alt='' width='300px'></img>
       <h3>{headline && headline.title}</h3>
       <p>{headline && headline.content}</p>
       <p>Read more: <a href={headline && headline.url}>{headline && headline.url}</a></p>

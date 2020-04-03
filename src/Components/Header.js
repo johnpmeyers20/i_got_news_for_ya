@@ -1,8 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import SourceButtons from './SourceButtons.js'
-
 import '../App.css';
 
 function Header(props) {
@@ -15,9 +13,6 @@ function Header(props) {
       <Link to='/covid-19/'>
         <button>COVID-19</button>
       </Link>
-      {/* <div className='nav'>
-        <SourceButtons headlines={props.headlines} button={props.button} />
-      </div> */}
     </div>
   )
 }
