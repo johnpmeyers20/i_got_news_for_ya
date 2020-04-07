@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import '../App.css';
+import Button from './Button/Button'
 
 
 function SourceButtons(props) {
@@ -15,3 +16,6 @@ function SourceButtons(props) {
 }
 
 export default SourceButtons
+
+// {sources.map(source => <button onClick={() => props.button(`${source}`)} key={`srcButton(${source})`}><Link to={`/source/`}>{source}</Link></button>)}
+// key={`srcButton(${source})`}

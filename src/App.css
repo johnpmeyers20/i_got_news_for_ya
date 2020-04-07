@@ -26,6 +26,7 @@
   padding-left: auto;
   padding-right: auto;
   padding-bottom: 25px;
+  width: 100%;
 }
 .nav {
   grid-area: nav;
@@ -54,6 +55,7 @@ h1 {
   padding-top: 15px;
   font-family: 'Pacifico', cursive;
   text-align: center;
+  font-size: 35px;
 }
 .source-nav-bar button {
   margin: 0 10px;
@@ -65,7 +67,7 @@ a {
 button {
   width: 150px;
   height: auto;
-
+  display: inline;
 }
 
 .article-image {
@@ -74,3 +76,102 @@ button {
   justify-items: center;
   justify-content: center;
 }
+
+@media only screen and (max-width: 400px) {
+  .main-container {
+    font-family: 'Roboto', sans-serif;
+    display: grid;
+  
+    grid-template-areas: 
+      'header header header'
+      'content content content'
+      'footer footer footer';
+  
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: auto 1fr auto;
+    /* grid-gap: 10px; */
+  
+    height: 100vh;
+  }
+  .content {
+    grid-area: content;
+  }
+  h1 {
+    font-size: 25px;
+    margin: 0 auto;
+    padding: 0 auto;
+    margin-top: 0;
+    padding-top: 0;
+    padding-bottom: 5px;
+  }
+  button {
+    display: block;
+    padding: 0;
+    width: 105px;
+  }
+  .header {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    padding-bottom: 5px;
+  }
+  .nav {
+    display: none;
+  }
+
+}
+
+@media only screen and (min-width: 400px) and (max-width: 650px) {
+  .main-container {
+    font-family: sans-serif;
+    display: grid;
+  
+    grid-template-areas: 
+      'header header header'
+      'content content content'
+      'footer footer footer';
+  
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: auto 1fr auto;
+    /* grid-gap: 10px; */
+  
+    height: 100vh;
+  }
+  .content {
+    grid-area: content;
+  }
+  h1 {
+    font-size: 25px;
+    margin: 0 auto;
+    padding: 0 auto;
+    margin-top: 0;
+    padding-top: 0;
+    padding-bottom: 5px;
+  }
+  button {
+    display: block;
+    padding: 0;
+    width: 105px;
+  }
+  .header {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    padding-bottom: 5px;
+  }
+  .nav {
+    display: none;
+  }
+  li {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 15px;
+    margin-top: 0;
+    margin-bottom: 0;
+    border: 0;
+    display: block;
+    line-height: 1em;
+  }
+
+}
+

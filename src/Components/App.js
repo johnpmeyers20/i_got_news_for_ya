@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios'
 import { Route, Link } from 'react-router-dom'
+import Button from './Button/Button'
 
 import Header from './Header.js'
 import SubjectFilter from './SubjectFilter.js'
@@ -43,6 +44,8 @@ class App extends React.Component {
       <>
         <div className="main-container">
           <div className="header">
+            {/* <Button buttony='primary' label="Primary" />
+            <Button buttony='secondary' label="prosecco" /> */}
             <Header headlines={this.state.headlines} />
           </div>
           <div className="nav">

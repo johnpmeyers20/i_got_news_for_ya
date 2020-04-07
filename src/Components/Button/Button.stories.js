@@ -1,19 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Button from './Button';
-
-
-const style = {
-  backgroundColor: '#0069D9',
-  color: 'white',
-  borderRadius: '2px',
-  padding: '5px 25px',
-  border: '#0069D9'
-}
+import './Button.css'
 
 storiesOf('Button', module)
-  .add('Primary', () => <Button
-      label="Primary"
-      style={style}
-  />)
-    
+  .add('Home', () => <Button label="Home" classorama='home'/>)
+  .add('COVID-19', () => <Button label="COVID-19" classorama='covid' />)
+  .add('NavButtons', () => <Button label="NavButtons" classorama='navbuttons'/>)
+  

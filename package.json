@@ -7,6 +7,7 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
+    "fsevents": "^2.1.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router": "^5.1.2",
@@ -36,6 +37,23 @@
     ]
   },
   "devDependencies": {
-    "@storybook/react": "^5.3.18"
+    "@babel/core": "^7.9.0",
+    "@storybook/react": "^5.3.18",
+    "babel-loader": "^8.1.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.4.4"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/index.js"
+    ],
+    "coverageReporters": [
+      "text"
+    ]
   }
 }
