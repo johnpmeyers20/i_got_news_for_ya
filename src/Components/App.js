@@ -15,8 +15,8 @@ import '../App.css';
 const baseUrl = 'https://newsapi.org/v2/'
 const topHeadlinesEndpoint = 'top-headlines?'
 const langCountry = 'language=en&country=us&'
-const apiKey = REACT_APP_NEWS_API_KEY
-const topHeadlines = baseUrl + topHeadlinesEndpoint + langCountry + 'apiKey=' + apiKey
+const apiKey = 'apiKey=081c6cf976f54e9287be428fb57a16dd'
+const topHeadlines = baseUrl + topHeadlinesEndpoint + langCountry + apiKey
 
 class App extends React.Component {
   constructor(props) {
