@@ -15,8 +15,8 @@ import '../App.css';
 const baseUrl = 'https://newsapi.org/v2/'
 const topHeadlinesEndpoint = 'top-headlines?'
 const langCountry = 'language=en&country=us&'
-const apiKey = 'apiKey=' + process.env.REACT_APP_NEWS_API_KEY
-const topHeadlines = baseUrl + topHeadlinesEndpoint + langCountry + apiKey
+const apiKey = REACT_APP_NEWS_API_KEY
+const topHeadlines = baseUrl + topHeadlinesEndpoint + langCountry + 'apiKey=' + apiKey
 
 class App extends React.Component {
   constructor(props) {
@@ -36,7 +36,6 @@ class App extends React.Component {
 
   recordButton(src) {
     this.setState({ source: src })
-    console.log(this.state.source)
   }
 
   render() {
