@@ -1,8 +1,9 @@
 import React from 'react'
+import { useParams } from 'react-router-dom';
 
-function Article(props) {
-  const { match, headlines } = props
-  const headline = headlines.find(headline => headline.publishedAt === match.params.publishedAt)
+function Article({headlines}) {
+  const { publishedAt } = useParams()
+  const headline = headlines.find(headline => headline.publishedAt === publishedAt)
   return (
     <div>
       <img className='article-image' src={headline && headline.urlToImage} alt='' width='300px'></img>
@@ -13,4 +14,4 @@ function Article(props) {
   )
 }
 
-export default Article
+export default Article;
