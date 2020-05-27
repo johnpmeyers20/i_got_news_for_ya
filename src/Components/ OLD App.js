@@ -1,3 +1,6 @@
+//This component is being left here for the sake of reference
+//I've redone it with Hooks ('NewApp.js')
+
 import React from 'react';
 import axios from 'axios'
 import { Route, Link } from 'react-router-dom'
