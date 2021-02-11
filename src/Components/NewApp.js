@@ -11,11 +11,25 @@ import Article from "./Article.js";
 
 import "../App.css";
 
-const baseUrl = "https://newsapi.org/v2/";
-const topHeadlinesEndpoint = "top-headlines?";
-const langCountry = "language=en&country=us&";
-const apiKey = "apiKey=081c6cf976f54e9287be428fb57a16dd";
-const topHeadlines = baseUrl + topHeadlinesEndpoint + langCountry + apiKey;
+const baseUrl = "https://newscatcher.p.rapidapi.com";
+const latestHeadlines = "/v1/latest_headlines";
+const topHeadlines = baseUrl + latestHeadlines;
+const searchUrl = "/v1/search";
+const apiKey = process.env.REACT_APP_X_RAPIDAPI_KEY;
+console.log(topHeadlines);
+const options = {
+  method: 'GET',
+  url: topHeadlines,
+  params: {lang: 'en', media: 'True'},
+  headers: {
+    'x-rapidapi-key': apiKey,
+  }
+};
+
+const userSearch = {
+  method: 'GET',
+
+}
 
 function NewApp() {
   const [headlines, setHeadlines] = useState([]);
@@ -29,8 +43,9 @@ function NewApp() {
 
   useEffect(() => {
     const getHeadlines = async () => {
-      const resp = await axios.get(topHeadlines);
+      const resp = await axios.request(options);
       const headlines = resp.data.articles;
+      console.log(headlines);
       setHeadlines(headlines);
     };
     getHeadlines();
