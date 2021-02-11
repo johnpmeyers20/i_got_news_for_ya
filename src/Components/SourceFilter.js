@@ -5,14 +5,14 @@ function SourceFilter(props) {
   const relevantHeadlines = props.headlines.filter(headline => headline.source === props.source)
   return (
     <>
+      <h3>{props.source}</h3>
       {relevantHeadlines.map(headline => {
         return (
           <>
-          <h3>{props.source}</h3>
             <ul>
               <li>
                 <Link to={`/source/${headline.publishedAt}`}>
-                  {headline.title.slice(0, (headline.title.indexOf('-') - 1)).replace(/%/g, ' percent')}
+                  {headline.title}
                 </Link>
               </li>
             </ul>
