@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 
 function SourceFilter(props) {
-  const relevantHeadlines = props.headlines.filter(headline => headline.source.name === props.source)
+  const relevantHeadlines = props.headlines.filter(headline => headline.source === props.source)
   return (
     <>
       {relevantHeadlines.map(headline => {

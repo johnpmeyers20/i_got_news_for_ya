@@ -2,17 +2,20 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 function ArticleList(props) {
+  const uniqueIdentifier = (headline) => {
+    return headline.source + headline.published_at + headline.title.split(' ')[0];
+  }
   return (
     <>
-      {props.headlines.map((headline, index) => {
+      {props.headlines.map((headline) => {
         return (
-          <div key={headline.publishedAt + index.toString()}>
+          <div key={uniqueIdentifier(headline)}>
             <ul>
-              <li key={headline.publishedAt}>
-                <Link to={`/article/${headline.publishedAt}`}>
+              <li key={uniqueIdentifier(headline)}>
+                <Link to={`/article/${uniqueIdentifier(headline)}`}>
                   <strong>
-                    {headline.source.name}
-                  </strong> - {headline.title.slice(0, (headline.title.indexOf('-') - 1)).replace(/%/g, ' percent')}
+                    {headline.source}
+                  </strong> - {headline.title}
                 </Link>
               </li>
             </ul>

@@ -13,7 +13,9 @@ import "../App.css";
 
 const mAPIKey = process.env.REACT_APP_MEDIASTACK_API_KEY;
 
-const mediastackUrl = `http://api.mediastack.com/v1/news?access_key=${mAPIKey}&sources=en&countries=us,ca&sort=published_desc&limit=50`;
+const mediastackSources = '&sources=cnn,bbc,nytimes,euronews,espn,cbs,msnbc,skynews,aljazeera,bbc,usatoday,guardian,time,fox,tmz,huffpost'
+const liveNewsUrl = `http://api.mediastack.com/v1/news?access_key=${mAPIKey}&languages=en&countries=us,ca,gb&sort=popularity&limit=100` + mediastackSources;
+const newSourceUrl = `http://api.mediastack.com/v1/news?access_key=${mAPIKey}&sources`
 
 function NewApp() {
   const [headlines, setHeadlines] = useState([]);
@@ -21,7 +23,7 @@ function NewApp() {
 
   useEffect(() => {
     const getHeadlines = async () => {
-      const resp = await axios.get(mediastackUrl);
+      const resp = await axios.get(liveNewsUrl);
       const headlines = resp.data.data;
       console.log(headlines);
       setHeadlines(headlines);
@@ -62,7 +64,7 @@ export default NewApp;
 //I modded it further above
 
 // const getLiveNews = async () => {
-//   let url = mediastackUrl;
+//   let url = liveNewsUrl;
 //   const resp = await axios.get(url);
 //   console.log('Axios response from getting live news', resp.data.data.length);
 //   console.log(resp.data.data);
