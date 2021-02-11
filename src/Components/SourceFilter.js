@@ -3,22 +3,22 @@ import {Link} from 'react-router-dom'
 
 function SourceFilter(props) {
   const relevantHeadlines = props.headlines.filter(headline => headline.source === props.source)
+  const relevantHeadlineListItems = relevantHeadlines.map((headline, i) => {
+    return (
+      <li key={headline.published_at.toString()+i.toString()}>
+        <Link to={`/source/${headline.published_at.toString()}`}>
+          {headline.title}
+        </Link>
+      </li>
+    )
+  });
+  
   return (
     <>
       <h3>{props.source}</h3>
-      {relevantHeadlines.map(headline => {
-        return (
-          <>
-            <ul>
-              <li>
-                <Link to={`/source/${headline.publishedAt}`}>
-                  {headline.title}
-                </Link>
-              </li>
-            </ul>
-          </>
-        )
-      })}  
+      <ul>
+        {relevantHeadlineListItems}
+      </ul>
     </>
   )
 }
