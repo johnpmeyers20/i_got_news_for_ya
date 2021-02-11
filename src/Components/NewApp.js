@@ -25,8 +25,9 @@ function NewApp() {
     const getHeadlines = async () => {
       const resp = await axios.get(liveNewsUrl);
       const headlines = resp.data.data;
-      console.log(headlines);
-      setHeadlines(headlines);
+      const uHeadlines = headlines.filter((headline, index, arr) => arr.map(mapObj => mapObj.title).indexOf(headline.title) === index);
+      console.log(uHeadlines);
+      setHeadlines(uHeadlines);
     };
     getHeadlines();
   }, []);
