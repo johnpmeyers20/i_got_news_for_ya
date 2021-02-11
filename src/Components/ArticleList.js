@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 function ArticleList(props) {
   return (
     <>
-      {props.headlines.map(headline => {
+      {props.headlines.map((headline, index) => {
         return (
-          <div key={headline.publishedAt}>
+          <div key={headline.publishedAt + index.toString()}>
             <ul>
               <li key={headline.publishedAt}>
                 <Link to={`/article/${headline.publishedAt}`}>

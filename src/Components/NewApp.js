@@ -11,45 +11,40 @@ import Article from "./Article.js";
 
 import "../App.css";
 
-const baseUrl = "https://newscatcher.p.rapidapi.com";
-const latestHeadlines = "/v1/latest_headlines";
-const topHeadlines = baseUrl + latestHeadlines;
-const searchUrl = "/v1/search";
-const apiKey = process.env.REACT_APP_X_RAPIDAPI_KEY;
-console.log(topHeadlines);
-const options = {
-  method: 'GET',
-  url: topHeadlines,
-  params: {lang: 'en', media: 'True'},
-  headers: {
-    'x-rapidapi-key': apiKey,
-  }
-};
+const mAPIKey = process.env.REACT_APP_MEDIASTACK_API_KEY;
 
-const userSearch = {
-  method: 'GET',
+const mediastackUrl = `http://api.mediastack.com/v1/news?access_key=${mAPIKey}&sources=en`;
 
-}
+// const getLiveNews = async () => {
+//   let url = mediastackUrl;
+//   const resp = await axios.get(url);
+//   console.log('Axios response from getting live news', resp.data.data.length);
+//   console.log(resp.data.data);
+//   return resp.data.data;
+// }
 
 function NewApp() {
   const [headlines, setHeadlines] = useState([]);
   const [source, setSource] = useState([]);
 
-  // In order to use an object:
-  // const [object, setObject] = useState({
-  //   headlines: [],
-  //   source: []
-  //  })
-
   useEffect(() => {
     const getHeadlines = async () => {
-      const resp = await axios.request(options);
-      const headlines = resp.data.articles;
+      const resp = await axios.get(mediastackUrl);
+      const headlines = resp.data.data;
       console.log(headlines);
       setHeadlines(headlines);
     };
     getHeadlines();
   }, []);
+
+  // useEffect(() => {
+  //   const getHeadlines = () => {
+  //     const resp = getLiveNews();
+  //     console.log(resp);
+  //     setHeadlines(resp);
+  //   };
+  //   getHeadlines();
+  // }, []);
 
   const recordButton = (src) => {
     setSource(src);
@@ -86,3 +81,74 @@ export default NewApp;
 // <Route exact path="/source/" render={(props) => (<SourceFilter {...props} headlines={headlines} source={source} />)}/>
 // <Route path='/covid-19/:publishedAt' render={props => <Article {...props} headlines={headlines} />} />
 // <Route path="/source/:publishedAt" render={(props) => <Article {...props} headlines={headlines} />}/>
+
+// const options = {
+//   method: 'GET',
+//   url: topHeadlines,
+//   params: {lang: 'en', media: 'True'},
+//   headers: {
+//     'x-rapidapi-key': apiKey,
+//   }
+// };
+
+// const options = {
+//   method: 'GET',
+//   url: 'https://newscatcher.p.rapidapi.com/v1/search',
+//   params: {q: 'Elon Musk', lang: 'en', sort_by: 'relevancy', page: '1', media: 'True'},
+//   headers: {
+//     'x-rapidapi-key': apiKey,
+//     'x-rapidapi-host': 'newscatcher.p.rapidapi.com'
+//   }
+// };
+
+// const options = {
+//   headers: {"Access-Control-Allow-Origin": "*"},
+//   method: 'GET',
+//   url: 'https://api.mediastack.com/v1/news',
+//   data: {
+//     access_key: mAPIKey,
+//     languages: 'en',
+//     countries: 'us',
+//     limit: 30,
+//     offset: 30,
+//   }
+// };
+
+// const options = {
+//   url: 'http://api.mediastack.com/v1/news',
+//   data: {
+//     access_key: mAPIKey,
+//     languages: 'en',
+//     countries: 'us',
+//     limit: 30,
+//     offset: 30,
+//   }
+// }
+
+  // In order to use an object:
+  // const [object, setObject] = useState({
+  //   headlines: [],
+  //   source: []
+  //  })
+
+
+
+  // useEffect(() => {
+  //   $.ajax({
+  //     url: 'http://api.mediastack.com/v1/news',
+  //     data: {
+  //       access_key: mAPIKey,
+  //       languages: 'en',
+  //       countries: 'us',
+  //       limit: 30,
+  //       offset: 30,
+  //     }
+  //   }).done((data) => {
+  //     console.log(data);
+  //   });
+  // }, []);
+
+  // useEffect(() => {
+  //   const res = async () => { await $.ajax(options).done(data => console.log(data)) };
+  //   console.log('haha', res);
+  // }, []);
