@@ -12,7 +12,7 @@ function ArticleList(props) {
           <div key={uniqueIdentifier(headline)}>
             <ul>
               <li key={uniqueIdentifier(headline)}>
-                <Link to={`/article/${uniqueIdentifier(headline)}`}>
+                <Link to={`/article/${headline.unique}`}>
                   <strong>
                     {headline.source}
                   </strong> - {headline.title}

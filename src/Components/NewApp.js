@@ -15,7 +15,10 @@ const mAPIKey = process.env.REACT_APP_MEDIASTACK_API_KEY;
 
 const mediastackSources = '&sources=cnn,bbc,nytimes,euronews,espn,cbs,msnbc,skynews,aljazeera,bbc,usatoday,guardian,time,fox,tmz,huffpost'
 const liveNewsUrl = `http://api.mediastack.com/v1/news?access_key=${mAPIKey}&languages=en&countries=us,ca,gb&sort=popularity&limit=100` + mediastackSources;
-const newSourceUrl = `http://api.mediastack.com/v1/news?access_key=${mAPIKey}&sources`
+
+const uniqueIdentifier = (headline) => {
+  return (headline.source + headline.published_at + headline.title.split(' ')[0]).toString().match(/\w/g).join('');
+}
 
 function NewApp() {
   const [headlines, setHeadlines] = useState([]);
@@ -26,8 +29,9 @@ function NewApp() {
       const resp = await axios.get(liveNewsUrl);
       const headlines = resp.data.data;
       const uHeadlines = headlines.filter((headline, index, arr) => arr.map(mapObj => mapObj.title).indexOf(headline.title) === index);
-      console.log(uHeadlines);
-      setHeadlines(uHeadlines);
+      const uHeadWithU = uHeadlines.map(obj => ({ ...obj, unique: uniqueIdentifier(obj) }));
+      console.log(uHeadWithU);
+      setHeadlines(uHeadWithU);
     };
     getHeadlines();
   }, []);
