@@ -8,7 +8,9 @@ function SourceButtons(props) {
   let sources = headlines.filter(unique)
   return (
     <nav>
-      {sources.map(source => <button onClick={() => props.button(`${source}`)} key={`srcButton(${source})`}><Link to={`/source/`}>{source}</Link></button>)}
+      {sources.map(source =>
+        <button onClick={() => props.button(`${source}`)} key={`srcButton(${source})`}>
+          <Link to={`/${source}`}>{source}</Link></button>)}
     </nav>
   )
 }

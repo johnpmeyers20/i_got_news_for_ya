@@ -6,7 +6,7 @@ function Article({ headlines }) {
   const headline = headlines.find(
     (headline) => headline.publishedAt === publishedAt
   )
-  console.log('well there it is!', headline)
+
   return (
     <div>
       <img

@@ -52,7 +52,7 @@ function NewApp() {
         <div className="content">
           <Route exact path='/'><ArticleList headlines={headlines} /></Route>
           <Route exact path='/covid-19/'><SubjectFilter headlines={headlines} /></Route>
-          <Route exact path='/source/'><SourceFilter headlines={headlines} source={source}/></Route>
+          <Route path='/:source'><SourceFilter headlines={headlines} source={source}/></Route>
           <Route path="/covid-19/:publishedAt"><Article headlines={headlines} /></Route>
           <Route path="/article/:publishedAt"><Article headlines={headlines} /></Route>
           <Route path='/source/:publishedAt'><Article headlines={headlines} /></Route>
