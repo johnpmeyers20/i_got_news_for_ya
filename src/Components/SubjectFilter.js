@@ -3,20 +3,22 @@ import {Link} from 'react-router-dom'
 
 function SubjectFilter(props) {
   const covidTitles = props.headlines.filter(headline => headline.title.match(/covid/ig) || headline.title.match(/corona/ig))
-  // console.log(covidTitles.length)
+  const listCovidArticles = covidTitles.map((headline) => {
+    return (
+      <li key={headline.unique}>
+        <Link to={`/${props.source}/${headline.unique}`}>
+          <strong>{headline.source}</strong> - {headline.title}
+        </Link>
+      </li>
+    )
+  });
+  
   return (
     <>
-      {covidTitles.map(title => {
-        return (
-          <ul>
-            <li>
-              <Link to={`/covid-19/${title.publishedAt}`}>
-                <strong>{title.source.name}</strong> - {title.title.slice(0, (title.title.indexOf('-') - 1)).replace(/%/g, ' percent')}
-              </Link>
-            </li>
-          </ul>
-        )
-      })}
+      <h2>COVID-19 Related Articles</h2>
+      <ul>
+      {listCovidArticles}
+      </ul>
     </>
   )
 }

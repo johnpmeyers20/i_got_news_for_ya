@@ -12,8 +12,8 @@ function Header(props) {
         <Button classorama='home' label='Home'/>
         {/* <button>Home</button> */}
       </Link>
-      <Link to='/covid-19/'>
-        <Button classorama='covid' label='COVID-19'/>
+      <Link to='/covid-19/' onClick={() => props.button(null)}>
+        <Button classorama='covid' label='COVID-19' />
       </Link>
     </div>
   )

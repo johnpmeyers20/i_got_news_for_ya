@@ -10,7 +10,8 @@ function SourceButtons(props) {
     <nav>
       {sources.map(source =>
         <button onClick={() => props.button(`${source}`)} key={`srcButton(${source})`}>
-          <Link to={`/${source}`}>{source}</Link></button>)}
+          <Link to={`/${source}`}>{source}</Link>
+        </button>)}
     </nav>
   )
 }

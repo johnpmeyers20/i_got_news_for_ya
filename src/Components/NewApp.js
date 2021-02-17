@@ -44,7 +44,7 @@ function NewApp() {
     <>
       <div className="main-container">
         <div className="header">
-          <Header headlines={headlines} />
+          <Header headlines={headlines} button={recordButton}/>
         </div>
         <div className="nav">
           <SourceButtons headlines={headlines} button={recordButton} />
@@ -54,7 +54,7 @@ function NewApp() {
           <Route exact path='/covid-19/'><SubjectFilter headlines={headlines} /></Route>
           <Route exact path='/:source'><SourceFilter headlines={headlines} source={source}/></Route>
           <Route path='/:source/:unique'><Article headlines={headlines} /></Route>
-          <Route path="/covid-19/:publishedAt"><Article headlines={headlines} /></Route>
+          {/* <Route path="/covid-19/:publishedAt"><Article headlines={headlines} /></Route> */}
           {/* <Route path="/article/:publishedAt"><Article headlines={headlines} /></Route> */}
         </div>
         <footer className="footer">JP Meyers</footer>
