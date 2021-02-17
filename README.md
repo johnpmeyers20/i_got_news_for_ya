@@ -1,10 +1,13 @@
 # ga_project_2 - I Got News For Ya!
+
 ![supernova gif](https://i.imgur.com/7qE5zF6.gif)
 
 # Description
-I Got News For Ya! is to be a news aggregator with an emphasis on an extra tab for a current issue (i.e. COVID-19) where news on that subject will be gathered. Users will be presented with a general set of headlines and should have the opportunity to choose the source from whom they read. 
+
+I Got News For Ya! is to be a news aggregator with an emphasis on an extra tab for a current issue (i.e. COVID-19) where news on that subject will be gathered. Users will be presented with a general set of headlines and should have the opportunity to choose the source from whom they read.
 
 # Wireframe
+
 ![Mobile and Tablet Wireframe](https://i.imgur.com/teKW9Tf.jpg)
 ![Desktop Wireframe](https://i.imgur.com/BY7QRce.jpg)
 
@@ -33,6 +36,7 @@ Once I've hit MVP, I would like to add functionality by way of comments and like
 # SWOT Analysis
 
 # Code Showcase
+
 I found a code snippet on filtering at the following website: https://levelup.gitconnected.com/filter-unique-in-javascript-226007247354
 The "internet's answer" was what I went with. It goes as follows:
 
@@ -40,4 +44,9 @@ const unique = (x, i, a) => a.indexOf(x) == i;
 myArray.filter(unique);
 
 # Netlify Link
-https://dazzling-wright-a379f7.netlify.com/
+
+<!-- https://dazzling-wright-a379f7.netlify.com/ -->
+
+# Surge Link
+
+http://oceanic-uncle.surge.sh/

@@ -6,15 +6,13 @@ function ArticleList(props) {
     <ul>  
     {props.headlines.map((headline) => {
       return (
-        <div key={headline.unique}>
-            <li key={headline.unique}>
-              <Link to={`/article/${headline.unique}`}>
-                <strong>
-                  {headline.source}
-                </strong> - {headline.title}
-              </Link>
-            </li>
-        </div>
+        <li key={headline.unique}>
+          <Link to={`/${headline.source}/${headline.unique}`}>
+            <strong>
+              {headline.source}
+            </strong> - {headline.title}
+          </Link>
+        </li>
       )
     })}
     </ul>

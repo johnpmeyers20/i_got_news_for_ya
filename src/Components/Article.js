@@ -2,10 +2,10 @@ import React from "react";
 import { useParams } from "react-router-dom";
 
 function Article({ headlines }) {
-  const { publishedAt } = useParams();
+  const { unique } = useParams();
   const headline = headlines.find(
-    (headline) => headline.publishedAt === publishedAt
-  )
+    (headline) => headline.unique === unique
+  );
 
   return (
     <div>

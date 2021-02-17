@@ -5,8 +5,8 @@ function SourceFilter(props) {
   const relevantHeadlines = props.headlines.filter(headline => headline.source === props.source)
   const relevantHeadlineListItems = relevantHeadlines.map((headline, i) => {
     return (
-      <li key={headline.published_at.toString()+i.toString()}>
-        <Link to={`/source/${headline.published_at.toString()}`}>
+      <li key={headline.unique}>
+        <Link to={`/${props.source}/${headline.unique}`}>
           {headline.title}
         </Link>
       </li>
